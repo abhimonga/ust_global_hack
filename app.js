@@ -1,7 +1,7 @@
 const express = require('express');
 const admin = require('firebase-admin');
 let serviceAccount = require('./public/key.json');
-var port=process.env.port||3000;
+var port = process.env.port || 3000;
 var path = require('path');
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount)
@@ -33,6 +33,11 @@ app.use(bp.urlencoded({ limit: '50mb', extended: true, parameterLimit: 50000 }))
 app.post('/new', (req, res) => {
     var uuid = req.body.ida;
     var oid = req.body.idb;
+    console.log(uuid, oid);
+});
+app.post('/old', (req, res) => {
+    var uuid = req.body.idc;
+    var oid = req.body.idd;
     console.log(uuid, oid);
 })
 app.listen(port, () => {
