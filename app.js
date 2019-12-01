@@ -1,6 +1,7 @@
 const express = require('express');
 const admin = require('firebase-admin');
 let serviceAccount = require('./public/key.json');
+var port=process.env.port||3000;
 var path = require('path');
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount)
@@ -34,6 +35,6 @@ app.post('/new', (req, res) => {
     var oid = req.body.idb;
     console.log(uuid, oid);
 })
-app.listen(3000, () => {
+app.listen(port, () => {
     console.log("connected successfully");
 })
