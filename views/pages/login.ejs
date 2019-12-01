@@ -1,0 +1,179 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="logincss.css" >
+      
+    <title>Find a Friend</title>
+  </head>
+  <body class="bg-light">
+   <!-- Image and text -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light static-top mt-3 ">
+  <div class="container">
+      
+    <a class="navbar-brand mr-5" href="#">
+          <img src="" alt="">
+        </a>
+     
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        
+          
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!--login/signup-->
+      
+<!--
+  This was created based on the Dribble shot by Deepak Yadav that you can find at https://goo.gl/XRALsw
+  I'm @hk95 on GitHub. Feel free to message me anytime.
+-->
+
+<section class="user ">
+  <div class="user_options-container">
+    <div class="user_options-text">
+      <div class="user_options-unregistered">
+        <h2 class="user_unregistered-title">Register  </h2>
+        <p class="user_unregistered-text">Find friends who you will stick to and they will stick to you because you would know each other in and out. </p>
+        <button class="user_unregistered-signup" id="signup-button">Log in</button>
+      </div>
+
+      <div class="user_options-registered">
+        <h2 class="user_registered-title">Log in</h2>
+        <p class="user_registered-text">Find friends who you will stick to and they will stick to you because you would know each other in and out.</p>
+        <button class="user_registered-login" id="login-button">Register</button>
+      </div>
+    </div>
+    
+    <div class="user_options-forms" id="user_options-forms" style="height: 500px;" >
+      <div class="user_forms-login"  >
+        <h2 class="forms_title">Register</h2>
+        <form class="forms_form" action="adminlogin.jsp" method = "post" >
+        
+          <fieldset class="forms_fieldset" >
+            <div class="forms_field">
+              <input type="text" name="name" placeholder="Name" class="forms_field-input" required autofocus />
+            </div>
+            <div class="forms_field">
+                <input type="email"name="email" placeholder="Email ID" class="forms_field-input" required />
+              </div>
+              
+                <div class="row">
+                    <div class="col">
+                        <div class="forms_field">
+                            <input type="number"name="age" placeholder="Age" class="forms_field-input" required />
+                          </div>
+                    </div>
+                    <div class="col">
+                        <div class="forms_field">
+                            <input type="text"name="gender" placeholder="Gender" class="forms_field-input" required />
+                          </div>
+                    </div>
+                </div>
+              
+              
+              
+              
+              <div class="forms_field" style="padding-top: 15px;">
+                <input type="password"name="password" placeholder="Password" class="forms_field-input" required />
+              </div>
+              <div class="forms_field">
+                <input type="password"name="cpassword" placeholder=" Confirm Password" class="forms_field-input" required />
+              </div>
+          </fieldset>
+          <div class="forms_buttons">
+            
+            <input type="submit" value="Register" class="forms_buttons-action" >
+          </div>
+        </form>
+      </div>
+      <div class="user_forms-signup" >
+        <h2 class="forms_title">Log In</h2>
+        <form class="forms_form" action = "employee.jsp" method = "post">
+          <fieldset class="forms_fieldset">
+            <div class="forms_field">
+              <input type="text" placeholder="Email" class="forms_field-input" required />
+            </div>
+            <div class="forms_field">
+              <input type="password" placeholder="Password" class="forms_field-input" required />
+            </div>
+            
+          </fieldset>
+          <div class="forms_buttons"> 
+            <input type="submit" value="Log In" class="forms_buttons-action">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+      
+      
+      
+      
+      
+<!--end of login/signup-->
+      
+      
+      
+      
+    <!-- Optional JavaScript -->
+      
+ <script type="text/javascript">
+          
+          /**
+ * Variables
+ */
+const signupButton = document.getElementById('signup-button'),
+    loginButton = document.getElementById('login-button'),
+    userForms = document.getElementById('user_options-forms')
+
+/**
+ * Add event listener to the "Sign Up" button
+ */
+signupButton.addEventListener('click', () => {
+  userForms.classList.remove('bounceRight')
+  userForms.classList.add('bounceLeft')
+}, false)
+
+/**
+ * Add event listener to the "Login" button
+ */
+loginButton.addEventListener('click', () => {
+  userForms.classList.remove('bounceLeft')
+  userForms.classList.add('bounceRight')
+}, false)
+          
+          
+    const emp=document.getElementById('le')
+    le.addEventListener('click',() => {
+        userForms.classList.remove('bounceRight')
+  userForms.classList.add('bounceLeft')
+    },false)
+          
+       const admin=document.getElementById('la')
+    la.addEventListener('click',() => {
+         userForms.classList.remove('bounceLeft')
+  userForms.classList.add('bounceRight')
+    },false) 
+    
+      </script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity ="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+  </body>
+</html>
