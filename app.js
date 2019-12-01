@@ -11,7 +11,8 @@ let db = admin.firestore();
 
 
 var app = express();
-app.use(bp);
+app.use(bp.json({ limit: '50mb' }));
+app.use(bp.urlencoded({ limit: '50mb', extended: true, parameterLimit: 50000 }));
 // db.collection('Users').doc("8w6P2AW4mfPUjar43soHfzK8fOi2").get()
 //     .then((snapshot) => {
 //         var size = snapshot.data().friends.length;
@@ -30,8 +31,8 @@ app.use(bp);
 //     });
 app.post('/new', (req, res) => {
     var uuid = req.body.ida;
-    var ooid = req.body.idb;
-    console.log(uuid, ooid);
+    var oid = req.body.idb;
+    console.log(uuid, oid);
 })
 app.listen(3000, () => {
     console.log("connected successfully");
