@@ -2,6 +2,8 @@ const admin = require('firebase-admin');
 const express = require('express');
 let serviceAccount = require('./public/key.json');
 var path = require('path');
+var bp = require('body-parser');
+var port = process.env.port || 3000;
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount)
 });
@@ -31,6 +33,9 @@ db.collection('Users').doc("8w6P2AW4mfPUjar43soHfzK8fOi2").get()
     .catch((err) => {
         console.log('Error getting documents', err);
     });
-app.listen(3000, () => {
+app.post('/new', (req, res) => {
+    console.log(req.body);
+})
+app.listen(port, () => {
     console.log("connected successful");
 })
