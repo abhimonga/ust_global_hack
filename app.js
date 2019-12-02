@@ -21,7 +21,7 @@ app.post('/new', (req, res) => {
 
     db.collection('Users').doc(myUid).get().then((doc) => {
         console.log(doc.data());
-        var name = doc.data().username;
+        var name = doc.data().name;
 
 
 
@@ -53,7 +53,7 @@ app.post('/accept', (req, res) => {
 
     db.collection('Users').doc(uid).get().then((doc) => {
         console.log(doc.data());
-        var name = doc.data().username;
+        var name = doc.data().name;
 
 
 
