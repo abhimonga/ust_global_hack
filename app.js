@@ -36,7 +36,7 @@ app.post('/new', (req, res) => {
         admin.messaging().send(message)
             .then((response) => {
                 console.log('Successfully sent message:', response);
-                res.send('Successfully sent message:', response)
+              //  res.send('Successfully sent message:', response)
             })
             .catch((error) => {
                 console.log('Error sending message:', error);
@@ -68,7 +68,7 @@ app.post('/accept', (req, res) => {
         admin.messaging().send(message)
             .then((response) => {
                 console.log('Successfully sent message:', response);
-                res.send('Successfully sent message:', response)
+               // res.send('Successfully sent message:', response)
             })
             .catch((error) => {
                 console.log('Error sending message:', error);
