@@ -14,32 +14,74 @@ let db = admin.firestore();
 var app = express();
 app.use(bp.json({ limit: '50mb' }));
 app.use(bp.urlencoded({ limit: '50mb', extended: true, parameterLimit: 50000 }));
-// db.collection('Users').doc("8w6P2AW4mfPUjar43soHfzK8fOi2").get()
-//     .then((snapshot) => {
-//         var size = snapshot.data().friends.length;
-//         // var size = snapshot.data().friends.size();
-//         for (var i = 0; i < size; i++) {
-//             request[i] = snapshot.data().request[i];
 
-//         }
-//         for (var i = 0; i < size; i++) {
-//             console.log(request[i])
-//         }
-
-//     })
-//     .catch((err) => {
-//         console.log('Error getting documents', err);
-//     });
 app.post('/new', (req, res) => {
-    var uuid = req.body.ida;
-    var oid = req.body.idb;
-    console.log(uuid, oid);
+    var uid = req.body.uid;
+    var myUid = req.body.myUid;
+
+    db.collection('Users').doc(myUid).get().then((doc) => {
+        console.log(doc.data());
+        var name = doc.data().username;
+
+
+
+        var message = {
+            notification: {
+                title: name + " sent you a friend request",
+            },
+            topic: uid
+
+        }
+
+        admin.messaging().send(message)
+            .then((response) => {
+                console.log('Successfully sent message:', response);
+                res.send('Successfully sent message:', response)
+            })
+            .catch((error) => {
+                console.log('Error sending message:', error);
+                res.send('Error sending message:', error)
+            });
+    });
+
 });
-app.post('/old', (req, res) => {
-    var uuid = req.body.idc;
-    var oid = req.body.idd;
-    console.log(uuid, oid);
+
+
+app.post('/accept', (req, res) => {
+    var uid = req.body.uid;
+    var myUid = req.body.myUid;
+
+    db.collection('Users').doc(uid).get().then((doc) => {
+        console.log(doc.data());
+        var name = doc.data().username;
+
+
+
+        var message = {
+            notification: {
+                title: name + " accepted your friend request!",
+            },
+            topic: myUid
+
+        }
+
+        admin.messaging().send(message)
+            .then((response) => {
+                console.log('Successfully sent message:', response);
+                res.send('Successfully sent message:', response)
+            })
+            .catch((error) => {
+                console.log('Error sending message:', error);
+                res.send('Error sending message:', error)
+            });
+    });
+
+});
+
+app.get("/", (req, res) => {
+    res.send("working");
 })
+
 app.listen(port, () => {
     console.log("connected successfully");
 })
